@@ -1,8 +1,5 @@
-type Groupes = [number, number, number?][];
-
-const students: number[] = [
-  12, 11, 123, 8, 9, 100, 90, 23, 22, 99, 198, 202, 11, 19, 78, 112, 7, 90, 877
-];
+import students from "./data";
+import { Groupes } from "./def";
 
 function buildGroupes(students: number[]): Groupes | never {
   const len: number = students.length;
@@ -28,7 +25,5 @@ function buildGroupes(students: number[]): Groupes | never {
   return groupes;
 }
 
-
-console.log(buildGroupes([ ...students ]));
-
+console.log(buildGroupes(students));
 console.log(students);
