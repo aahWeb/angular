@@ -15,8 +15,19 @@ class Product {
     get name():string {
         return this._name;
     }
+
+    // setter
+    set ref(ref: number) {
+        this._ref = ref;
+    }
+    
+    // getter : afficher une valeur dans le code courant
+    get ref():number {
+        return this._ref;
+    }
+
 }
 
 let bike = new Product('Super Bike');
 
-console.log(bike.name) // affichera Super Bike
+bike.name // getter
