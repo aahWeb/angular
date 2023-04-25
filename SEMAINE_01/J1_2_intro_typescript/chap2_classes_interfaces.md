@@ -107,7 +107,7 @@ class Guitar extends Music {
 
 Pensez à compiler avec la bonne cible JS au minimum ES5, et exécutez le code avec node.
 
-## Exercice 3
+## Exercice 3 
 
 Soit l’interface **Duck** suivante. La classe **Thing** l’implémente. Complétez le code pour que tout
 fonctionne correctement (compile). Il ne faut pas préciser la visibilité des membres d’une interface, par
@@ -136,6 +136,7 @@ class Recipe {
     star?: number; // attribut facultatif
 }
 
+// c'est plus intéressant d'utiliser une interface plus cohérent pour définir uniquement les types.
 let recipes: Recipe[] = []; // pour le type, la notation est équivalente à Array<Recipe>
 
 interface Bike {
@@ -146,13 +147,13 @@ interface Bike {
 let bikes: Bike[] = [];
 ```
 
-## Exercice 4.1
+## Exercice 4.1 (facultatif)
 
 Soit la définition suivante ajoutez quelques recettes dans la variable recipes ci-dessous.  
 Affichez ces valeurs en console.
 
 ```typescript
-class Recipe {
+interface Recipe {
     name: string;
     star?: number;
 }
@@ -160,7 +161,7 @@ class Recipe {
 let recipes: Recipe[] = []; // pour le type, la notation est équivalente à Array<Recipe>
 ```
 
-## Exercice 4.2
+## Exercice 4.2 (facultatif)
 
 Créez une variable « notes », précisez le type de cette variable dans sa définition (Array de
 « number »). Ajoutez quelques valeurs dans ce tableau et affichez en console le contenu de celle-ci.
