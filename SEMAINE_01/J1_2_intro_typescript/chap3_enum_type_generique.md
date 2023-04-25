@@ -9,7 +9,7 @@ un enum pour définir le type d’une variable par exemple un Status :
 enum Status {
     Published,
     Unpublished,
-    Draft
+    Draft = "Draft" // on peut donner des valeurs aux constantes
 }
 
 let state : Status;
@@ -56,13 +56,13 @@ queueArray.push([7, 8]);
 console.log(queueArray.pop()); // affiche [1,2]
 ```
 
-## Exercice 5.2
+## Exercice 5.2 (TP)
 
 Voici la structure que l’on vous propose d’utiliser pour cet exercice.
 
 ![](images/structure.png)
 
-Vous allez récupérer le code source de ce dernier dans le dossier **Source/05.2_Exercice_source**. 
+Vous allez récupérer le code source de ce dernier dans le dossier **TP/Cart_Source**. 
 Il ne vous restera plus qu’à faire un ```tsc -w``` en console pour compiler le code en continu :
 
 Nous avons défini une classe **Product** particulière avec les types génériques. Dans le fichier
@@ -72,7 +72,7 @@ Vous devez dans un premier temps récupérer les détails et les delivery en fon
 mettre l’ensemble des produits dans le tableau suivant :
 
 ```typescript
-let products: Array<Product<Details, Delivery>> = [];
+const products: Array<Product<Details, Delivery>> = [];
 ```
 
 Puis vous devez mapper ce fichier pour en extraire uniquement les produits dont l’option est « special »
