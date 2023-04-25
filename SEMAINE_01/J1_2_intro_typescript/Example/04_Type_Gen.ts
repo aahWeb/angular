@@ -17,3 +17,32 @@ function fusionTR<T, R>(a: T[], b: R[]): Array<T|R> {
 console.log( fusionTR<number, string>([1, 2, 3], ["10", "20"]) ) ;
 
 class Queue<T> {}
+
+// ------
+
+// constantes
+enum DeliveryUS {
+  DoorToDoor = "doortoDoor",
+  AirDelivery = "airDelivery",
+  Special = "special"
+}
+
+enum DeliveryUE {
+  AirDelivery = "airDelivery",
+  Special = "special"
+}
+
+class Product<T>{
+  status : T ;
+}
+
+const p1 = new Product<DeliveryUS>()
+const p2 = new Product<DeliveryUE>()
+
+class Cart<T, U>{
+  status : T ;
+  details : U;
+}
+
+
+new Cart<DeliveryUE, DeliveryUS>()
