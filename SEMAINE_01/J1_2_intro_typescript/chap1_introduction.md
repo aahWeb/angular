@@ -121,24 +121,29 @@ Le type never
 Lorsqu'une fonction ne retourne strictement rien, comme la fonction suivante, vous devez utiliser ce type.
 
 ```js
+// attention ne pas exécuter 
 function infiniteLoop(): never {
   while (true) {}
 }
-```
 
+// les exceptions == never
+function bar(): never  {
+  throw new Error("Exception ...");
+}
+```
 
 ### Type et fonction
 
-Une fonction peut être typée pour ses paramètres et son retour de paramètre
+Une fonction peut être typée pour son/ses paramètre(s) et son retour de paramètre(s), le typage composite est également permi.
 
 ```typescript
 
 function sayHello(message : string): void | string {
 
-    if(message.trim() !== ")
+    if(message.trim() != ")
         return message;
 
-    console.log("no message");
+    console.error("no message");
 }
 ```
 
@@ -159,6 +164,17 @@ interface User {
 Dans un fichier différent créer une class AddUser qui permet d'ajouter des objets de type User dans un tableau JS.
 
 Vous pouvez vérifier que l'objet que vous ajoutez n'existe pas déjà dans le tableau, et lancez une exception si c'est le cas.
+
+## 03 Exercice challenge (voir TP)
+
+Créez un programme qui permet de créer au hasard des groupes de 2 personnes parmi une classe de 16 élèves.
+
+Les élèves sont définies par des nombres uniques.
+
+```js
+const students : number[] = [12, 11, 123, 8, 9, 100, 90, 23, 22, 99, 198, 202, 11, 19, 78, 112] ;
+```
+
 
 ### On peut préciser le type d'une variable a posteriori
 
