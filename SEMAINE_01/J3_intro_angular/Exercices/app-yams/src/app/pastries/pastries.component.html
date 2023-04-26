@@ -6,7 +6,14 @@
     <section class="card-body">
       <h5 class="card-title">{{ pastrie.name }}</h5>
       <p class="card-text">{{ pastrie.description }}</p>
+      <ul class="d-flex list-unstyled " *ngIf="pastrie.tags && pastrie.tags.length > 0">
+        <li class="bg-info text-light m-2 p-2 rounded" *ngFor="let tag of pastrie.tags">{{tag}}</li>
+      </ul>
       <a href="#" class="btn btn-primary"> Desc >> </a>
+      <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
+      <small>{{pastrie.like}}</small>
+      <img class="glyph-icon" src="./assets/svg/si-glyph-triangle-double-arrow-right.svg" />
+      <small>{{pastrie.quantity}} unité(s) disponbile(s)</small>
     </section>
   </article>
 </section>
