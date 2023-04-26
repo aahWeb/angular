@@ -15,8 +15,31 @@ tsconfig.json, le dossier App et dist puis définissez les paramètres suivants 
   "exclude" : ["node_modules"] // exclure le dossier node_modules de la compilation
 }
 ```
-
 **Vous l’avez deviné ce fichier est un fichier propre à TypeScript et sa configuration.**
+
+## Exemple en JS 
+
+La notion de décorateur en JS, modifie et exécute du code avant ou/et après une fonction décorée.
+
+```js
+
+function showName(name) {
+    console.log('Hello, ' + name);
+}
+
+function decorator(wrapped) {
+    return function () {
+        console.log('Starting'); // avant
+        const result = wrapped.apply(this, arguments); // on lui passe des paramètres
+        console.log('Finished'); // après
+
+        return result;
+    };
+}
+const wrapped = decorator(showName);
+console.log(wrapped('Graham'));
+```
+
 
 ## Exercice 7
 
@@ -136,10 +159,38 @@ console.log(bike.speed());
 console.log(bike.model()) // modification du modèle
 ```
 
+Vous pouvez également récupérer facilement les paramètres d'une méthode :
+
+```ts
+// décorateur tva t : taux
+function tva(t: number) {
+
+  // modifie le comportement de la méthode
+  return function (target, key, descriptor) {
+    // Surcharge de la méthode décorée
+    descriptor.value = (a, b) => {
+      
+      // ttc
+      return Math.floor((1 + t) * (a + b) * 10) / 10; 
+    };
+  };
+}
+class Bike {
+
+  @tva(0.2)
+  total(a: number, b: number) {
+    return a + b;
+  }
+}
+
+const b = new Bike();
+
+b.total(60, 40) ; // 120 + tva de 20%
+```
+
 ### Décorateur de classe avec paramètres
 
-Imaginons un code comme suit avec un décorateur qui modifie le comportement de la classe Duck en
-lui ajoutant une méthode swim() :
+Imaginons un code comme suit avec un décorateur qui modifie le comportement de la classe Duck en lui ajoutant une méthode swim() :
 
 ```typescript
 @Feature({

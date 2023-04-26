@@ -9,6 +9,7 @@ const ids : number[] = delivery.map(p => p.id);
 const products: Array<Product<Details, Delivery>> = MockDetails.map(
     p => {
         const pDel : ProductDelivery = MockDelivery.find(pD => pD.id == p.id);
+        
         const product : Product<Details, Delivery> = new Product<Details, Delivery>(p,pDel.delivery);
 
         return product;
@@ -18,3 +19,4 @@ const products: Array<Product<Details, Delivery>> = MockDetails.map(
  const specials: Array<Product<Details, Delivery>> = products.filter(p=>p.option == Delivery.Special);
 
  console.log(specials)
+
