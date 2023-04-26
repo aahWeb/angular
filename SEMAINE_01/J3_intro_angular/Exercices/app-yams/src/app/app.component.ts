@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app-yams';
   numbers : number[] = [1, 2, 3, 6];
+
+  onSelect(num : number):void{
+    console.log(num);
+  }
 }
