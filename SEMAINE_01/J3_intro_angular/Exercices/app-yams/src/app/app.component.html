@@ -63,13 +63,7 @@
                   </li>
               </ul>
           </nav><!-- .pagination -->
-          <!-- Directive *ngIf ou *ngFor modifie le rendu -->
-          <ul *ngIf="numbers.length > 0">
-            <li *ngFor="let number of numbers">{{number}}</li>
-          </ul>
-          
           <app-pastries></app-pastries>
-          
           <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
                   <li class="page-item disabled">

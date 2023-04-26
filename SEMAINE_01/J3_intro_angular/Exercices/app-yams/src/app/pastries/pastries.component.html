@@ -1,40 +1,12 @@
-<div class="card">
-    <div class="card-header">
-        Viennoiserie
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">Brioche sucrée avec chocolat</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a class="btn btn-outline-primary" href="#" role="button">fr</a>
-        <a class="btn btn-outline-dark" href="#" role="button">brioche</a>
-
-        <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
-        <small>7</small>
-        <img class="glyph-icon" src="./assets/svg/si-glyph-triangle-double-arrow-right.svg" />
-        <small>8 unités disponbiles</small>
-    </div>
-</div><!-- .card -->
-<div class="card">
-    <div class="card-header">
-        Pâtisserie glacée
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">Banana au chocolat</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a class="btn btn-outline-dark" href="#" role="button">us</a>
-
-        <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
-        <small>3</small>
-        <img class="glyph-icon" src="./assets/svg/si-glyph-triangle-double-arrow-right.svg" />
-        <small>4 unités disponibles</small>
-    </div>
-</div><!-- .card -->
-
-<div *ngFor="let pastrie of pastries" class="card">
-    <div class="card-header">
-       {{pastrie.name}}
-    </div>
-    <div class="card-body">
-        
-    </div>
-</div>
+<section *ngIf="pastries.length > 0">
+  <article *ngFor="let pastrie of pastries" class="card">
+    <header class="card-header">
+      <h2>{{ pastrie.ref }}</h2>
+    </header>
+    <section class="card-body">
+      <h5 class="card-title">{{ pastrie.name }}</h5>
+      <p class="card-text">{{ pastrie.description }}</p>
+      <a href="#" class="btn btn-primary"> Desc >> </a>
+    </section>
+  </article>
+</section>
