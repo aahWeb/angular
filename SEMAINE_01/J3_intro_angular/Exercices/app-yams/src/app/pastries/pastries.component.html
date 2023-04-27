@@ -35,6 +35,7 @@
         *ngFor="let pastrie of pastries"
         class="card on-select"
         (click)="onSelect(pastrie)"
+        [appBorderCard]="color"
       >
         <header class="card-header">
           <h2>{{ pastrie.ref }}</h2>

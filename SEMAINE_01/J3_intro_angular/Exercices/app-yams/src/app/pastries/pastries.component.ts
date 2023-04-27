@@ -12,6 +12,7 @@ export class PastriesComponent implements OnInit {
   titlePage: string = 'Page principale : liste des pâtisseries à gagner';
   preferencePastries: PreferencePastries[] = [];
   count: number = 0;
+  color : string = "#009688";
 
   foo: string = 'hello';
   currentPastrie: Pastrie | null = null;
