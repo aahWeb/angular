@@ -20,8 +20,14 @@
     </ul>
   </nav>
   <!-- .pagination -->
+  <!-- On récupère la valeur $event de l'enfant -->
   <div class="col-sm-4">
-    <app-pastrie-details [bar]="foo" [pastrie]="currentPastrie" ></app-pastrie-details>
+    <app-pastrie-details 
+    [bar]="foo" 
+    [pastrie]="currentPastrie" 
+    [count]="count"
+    (changePreference)="changeParentPreference($event)"
+    ></app-pastrie-details>
   </div>
   <div class="col-sm-8 pastrie">
     <section *ngIf="pastries.length > 0">
@@ -55,6 +61,7 @@
             src="./assets/svg/si-glyph-triangle-double-arrow-right.svg"
           />
           <small>{{ pastrie.quantity }} unité(s) disponbile(s)</small>
+          <small *ngIf="pastrie.choice">[priority]</small>
         </section>
       </article>
     </section>

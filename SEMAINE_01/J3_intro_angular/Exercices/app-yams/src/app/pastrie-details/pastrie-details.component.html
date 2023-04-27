@@ -8,7 +8,7 @@
   <section class="card-body">
     <h5 class="card-title">{{ pastrie.ref }}</h5>
     <p class="card-text">{{ pastrie.name }}</p>
-    <a href="#" class="btn btn-primary"> Desc >> </a>
+    <button [disabled]="count && count === 3" (click)="preference(pastrie.id)" class="btn btn-primary"> Choice >> </button>
   </section>
   <ul class="list-group" *ngIf="getIngredients(pastrie.id)">
     <li *ngFor="let ingredient of getIngredients(pastrie.id)" class="list-group-item active">

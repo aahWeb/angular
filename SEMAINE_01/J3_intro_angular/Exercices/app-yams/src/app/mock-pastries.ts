@@ -15,6 +15,7 @@ export const PASTRIES: Pastrie[] = [
             "dessert"
         ],
         "like": "Much",
+        "choice" : false
     },
     {
         "id": "2",
@@ -31,6 +32,7 @@ export const PASTRIES: Pastrie[] = [
             "chocolat"
         ],
         "like": "Much",
+        "choice" : false
     },
     {
         "id": "3",
@@ -47,6 +49,7 @@ export const PASTRIES: Pastrie[] = [
             "chocolat",
             "framboises"
         ],
+        "choice" : false
     },
     {
         "id": "4",
@@ -61,6 +64,7 @@ export const PASTRIES: Pastrie[] = [
             "yummy"
         ],
         "like": "rather",
+        "choice" : false
     },
     {
         "id": "5",
@@ -71,6 +75,7 @@ export const PASTRIES: Pastrie[] = [
         "quantity": 2,
         "order": 5,
         "like": "Rather",
+        "choice" : false
     },
     {
         "id": "6",
@@ -86,6 +91,7 @@ export const PASTRIES: Pastrie[] = [
             "chocolat"
         ],
         "like": "Much",
+        "choice" : false
     },
     {
         "id": "7",
@@ -103,6 +109,7 @@ export const PASTRIES: Pastrie[] = [
             "fruits"
         ],
         "like": "Much",
+        "choice": false
     },
     {
         "id": "8",
@@ -118,6 +125,7 @@ export const PASTRIES: Pastrie[] = [
             "fruits"
         ],
         "like": "Much",
+        "choice" : false
     },
 ];
 
@@ -202,3 +210,6 @@ export const INGREDIENTS_LISTS: List[]  = [
       ]
     }
   ];
+
+export const Max : number = 3 ;
+export let Count : number = 0 ;
