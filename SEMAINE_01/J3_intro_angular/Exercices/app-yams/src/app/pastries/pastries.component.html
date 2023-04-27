@@ -60,7 +60,7 @@
             class="glyph-icon"
             src="./assets/svg/si-glyph-triangle-double-arrow-right.svg"
           />
-          <small>{{ pastrie.quantity }} unité(s) disponbile(s)</small>
+          <small>{{ pastrie.quantity }} {{ pastrie.quantity > 2 ? 'unités disponbiles' : 'unité disponbile'}} </small>
           <small *ngIf="pastrie.choice">[priority]</small>
         </section>
       </article>

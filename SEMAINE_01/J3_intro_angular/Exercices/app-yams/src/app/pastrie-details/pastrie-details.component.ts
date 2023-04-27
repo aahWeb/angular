@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Pastrie } from '../pastrie';
 import { INGREDIENTS_LISTS as ingredients } from '../mock-pastries';
+import { Max } from "../mock-pastries"
 
 @Component({
   selector: 'app-pastrie-details',
@@ -13,6 +14,7 @@ export class PastrieDetailsComponent {
   @Input() count: number | null = null;
   // pour sortir de l'enfant vers ... Un parent avec un emit 
   @Output() changePreference : EventEmitter<string> = new EventEmitter();
+  maxPreference : number = Max ; // éviter le hardcoding = un seul fichier pour les constantes
 
   getIngredients(id: string): string[] | null {
     const i = ingredients.find(i => i.id == id) ;
