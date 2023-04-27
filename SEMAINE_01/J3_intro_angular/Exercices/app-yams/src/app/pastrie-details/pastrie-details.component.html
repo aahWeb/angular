@@ -1,21 +1,18 @@
-<div class="card">
-  <p>Today's bar: {{ bar }}</p>
-  IMG
+<section class="card" *ngIf="pastrie">
   <img
+    *ngIf="pastrie.url"
     class="card-img-top"
-    src="./assets/images/default_image.png"
+    src="{{ pastrie.url }}"
     alt="Pastry Category"
   />
-  <div class="card-body">
-    <h5 class="card-title">Viennoiserie</h5>
-    <p class="card-text">Brioche sucrée avec chocolat</p>
+  <section class="card-body">
+    <h5 class="card-title">{{ pastrie.ref }}</h5>
+    <p class="card-text">{{ pastrie.name }}</p>
     <a href="#" class="btn btn-primary"> Desc >> </a>
-  </div>
-  <ul class="list-group">
-    <li class="list-group-item active">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+  </section>
+  <ul class="list-group" *ngIf="getIngredients(pastrie.id)">
+    <li *ngFor="let ingredient of getIngredients(pastrie.id)" class="list-group-item active">
+      {{ ingredient }}
+    </li>
   </ul>
-</div>
+</section>

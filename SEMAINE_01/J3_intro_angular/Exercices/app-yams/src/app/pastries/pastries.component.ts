@@ -12,6 +12,7 @@ export class PastriesComponent implements OnInit {
   titlePage: string = 'Page principale : liste des pâtisseries à gagner';
 
   foo : string = "hello"
+  currentPastrie : Pastrie | null  = null ;
 
   constructor() {
     console.log('Constructor');
@@ -21,7 +22,10 @@ export class PastriesComponent implements OnInit {
     console.log('Monter dans le DOM ...');
   }
 
+  // (click) = récupère la pastrie
   onSelect(pastrie: Pastrie) {
     console.log(pastrie);
+
+    this.currentPastrie = pastrie;
   }
 }

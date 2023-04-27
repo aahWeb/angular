@@ -21,7 +21,7 @@
   </nav>
   <!-- .pagination -->
   <div class="col-sm-4">
-    <app-pastrie-details [bar]="foo"  ></app-pastrie-details>
+    <app-pastrie-details [bar]="foo" [pastrie]="currentPastrie" ></app-pastrie-details>
   </div>
   <div class="col-sm-8 pastrie">
     <section *ngIf="pastries.length > 0">
