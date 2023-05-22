@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PastriesComponent } from './pastries/pastries.component';
@@ -7,6 +8,7 @@ import { PastrieDetailsComponent } from './pastrie-details/pastrie-details.compo
 import { BorderCardDirective } from './border-card.directive';
 import { RoutingModule } from './routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PastriesComponent,
     PastrieDetailsComponent,
     BorderCardDirective,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    RoutingModule
+    RoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
