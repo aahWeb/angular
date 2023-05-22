@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PastriesService } from '../pastries.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 import { Pastrie } from '../pastrie';
 
 @Component({
@@ -15,10 +15,22 @@ export class SearchComponent {
 
   constructor(private ps: PastriesService) { }
 
-  onSubmit(form: NgForm) {
-    const word = form.value.word;
-    const pastries: Pastrie[] = this.ps.search(word);
+  // onSubmit(form: NgForm) {
+  //   const word = form.value.word;
+  //   const pastries: Pastrie[] = this.ps.search(word);
 
+  //   this.searchPastries.emit(pastries)
+  // }
+
+  onChangeEmit(w: string){
+    const pastries: Pastrie[] = this.ps.search(w);
+    console.log(pastries);
+    
     this.searchPastries.emit(pastries)
+  }
+
+  onReload(){
+    this.word = "";
+    this.searchPastries.emit(this.ps.getPastries())
   }
 }
