@@ -17,8 +17,9 @@ export class PastriesService {
   }
 
   search(word : string): Pastrie[]{
+    const re = new RegExp(word.trim(), 'i');
 
-    return this.pastries;
+    return this.pastries.filter(p => p.name.match(re) );
   }
 
 

@@ -45,7 +45,10 @@ export class PastriesComponent implements OnInit {
       if (pastrie.choice && this.count < Max) this.count++;
       if (!pastrie.choice && this.count > 0 ) this.count--;
 
-      console.log(this.count);
     }
+  }
+
+  search($event : Pastrie[]){
+    this.pastries = $event ;
   }
 }

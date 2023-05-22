@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PastriesService } from '../pastries.service';
 import { NgForm } from '@angular/forms';
+import { Pastrie } from '../pastrie';
 
 @Component({
   selector: 'app-search',
@@ -9,13 +10,15 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchComponent {
 
-  word : string = '';
+  word: string = '';
+  @Output() searchPastries: EventEmitter<Pastrie[]> = new EventEmitter();
 
-  constructor(private ps : PastriesService){
-    // console.log(ps.getPastries());
-  }
+  constructor(private ps: PastriesService) { }
 
-  onSubmit(form : NgForm){
-    console.log(form.value ) 
+  onSubmit(form: NgForm) {
+    const word = form.value.word;
+    const pastries: Pastrie[] = this.ps.search(word);
+
+    this.searchPastries.emit(pastries)
   }
 }
