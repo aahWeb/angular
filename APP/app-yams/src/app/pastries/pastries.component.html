@@ -1,26 +1,9 @@
 <app-search (searchPastries)="search($event)" ></app-search>
 <div class="row content h-pastries">
   <!-- du template vers le TS (event)="function(arg)" -->
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+  
   <!-- .pagination -->
+  <app-pagination></app-pagination>
   <!-- On récupère la valeur $event de l'enfant -->
   <div class="col-sm-4">
     <div class="sticky">
@@ -71,24 +54,6 @@
     </section>
   </div>
   <!-- du template vers le TS (event)="function(arg)" -->
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
+  <app-pagination></app-pagination>
   <!-- .pagination -->
 </div>

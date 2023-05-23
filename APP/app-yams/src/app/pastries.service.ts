@@ -7,20 +7,32 @@ import { INGREDIENTS_LISTS, PASTRIES } from './mock-pastries';
   providedIn: 'root'
 })
 export class PastriesService {
-  private pastries : Pastrie[] = PASTRIES;
-  private ingredientsList : List[] = INGREDIENTS_LISTS;
+  private pastries: Pastrie[] = PASTRIES;
+  private ingredientsList: List[] = INGREDIENTS_LISTS;
 
-  constructor() { }
+  private numberPastries :number = 0 ;
 
-  getPastries(): Pastrie[]{
-    return this.pastries.sort((a, b) => b.quantity - a.quantity )
+  constructor() { 
+    this.numberPastries = this.pastries.length
   }
 
-  search(word : string): Pastrie[]{
+  getPastries(): Pastrie[] {
+    return this.pastries.sort((a, b) => b.quantity - a.quantity)
+  }
+
+  search(word: string): Pastrie[] {
     const re = new RegExp(word.trim(), 'i');
 
-    return this.pastries.filter(p => p.name.match(re) );
+    return this.pastries.filter(p => p.name.match(re));
   }
 
+  paginate(start: number, end: number) {
+
+    return this.getPastries().slice(start, end);
+  }
+
+  count():number{
+    return this.numberPastries;
+  }
 
 }

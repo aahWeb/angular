@@ -9,6 +9,7 @@ import { BorderCardDirective } from './border-card.directive';
 import { RoutingModule } from './routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchComponent } from './search/search.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchComponent } from './search/search.component';
     PastrieDetailsComponent,
     BorderCardDirective,
     PageNotFoundComponent,
-    SearchComponent
+    SearchComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
