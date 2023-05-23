@@ -177,6 +177,10 @@ subject.next(2);
 subject.complete();
 ```
 
+## Exercice horloge
+
+En utilisant Rxjs créer une horloge dans le header de notre application.
+
 ## Exercices opérateurs approfondissement
 
 Dans la suite des exercices créez une page HTML et utilisez RxJS en CDN
