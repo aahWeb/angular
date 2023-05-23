@@ -1,4 +1,4 @@
-const users = [
+export default [
     { id: 1, name: 'alan', score: 50 },
     { id: 2, name: 'albert', score: 150 },
     { id: 3, name: 'xavier', score: 0 },
