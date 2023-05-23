@@ -20,7 +20,7 @@ const observable = new Observable((observer) => {
 
 const pipeNumbers = observable.pipe(
     map(number => number + 10),
-    filter(number => number % 2)
+    filter((number, i) => number % 2)
 );
 
 pipeNumbers.subscribe(console.log)
