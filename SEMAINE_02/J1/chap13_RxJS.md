@@ -153,6 +153,11 @@ Mettez également la première lettre des noms en majuscule, pour se faire utili
 le pipe map, qui mappera chacune des données envoyée et donc vous permettra
 de modifier sa valeur avant la récupération dans la souscription.
 
+
+## Exercice horloge
+
+En utilisant Rxjs créer une horloge dans le header de notre application.
+
 ## Subject
 
 Un Subject est à la fois un Observable et un Observer. On peut donc comme
@@ -176,10 +181,6 @@ subject.next(2);
 
 subject.complete();
 ```
-
-## Exercice horloge
-
-En utilisant Rxjs créer une horloge dans le header de notre application.
 
 ## Exercices opérateurs approfondissement
 
