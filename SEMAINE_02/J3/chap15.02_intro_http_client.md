@@ -9,8 +9,8 @@ PastriesComponent, PastrieDetailsComponent, PastrieDescriptionComponent.
 
 ## Httpclient
 
-Ce module basé sur RxJS permet d’interroger des serveurs distants à l’aide du protocole HTTP. 
-Il utilise l’interface XMLHttpRequest exposée par le navigateur.
+Ce module basé sur **RxJS** permet d’interroger des serveurs distants à l’aide du protocole HTTP. 
+Il utilise l’interface **XMLHttpRequest** exposée par le navigateur.
 
 HttpClient est une couche d’abstraction pour la consommation de requêtes HTTP : 
 testabilité, gestion des erreurs, objets Request et Response.
@@ -68,8 +68,8 @@ providedIn: 'root'
 })
 export class PastrieService {
     // convention dans l'API ajoutez votre identifant de base de données
-    private pastriesUrl = 'http://localhost:4200/pastries'; // votre url locale pour les pâtisseries
-    private ingredientsListsUrl = 'http://localhost:4200/ingredientsLists'; // votre url locale pour la liste des ingrédients
+    private pastriesUrl = 'http://localhost:3001/api/pastries'; // votre url locale pour les pâtisseries
+    private ingredientsListsUrl = 'http://localhost:3001/api/ingredientsLists'; // votre url locale pour la liste des ingrédients
 }
 ```
 
@@ -97,9 +97,7 @@ export class PastrieService {
 
     getPastries(): Observable<Pastrie[]> {
         
-        return this.http.get<Pastrie[]>(this.pastriesUrl + '/.json', httpOptions).pipe(
-            // Préparation des données avec _.values pour avoir un format exploitable 
-            // dans l'applimap(pastries => _.values(pastries)),
+        return this.http.get<Pastrie[]>(this.pastriesUrl , httpOptions).pipe(
             // Ordonnez les pâtisseries par ordre de quantités décroissantes
             map(pastries => {
                 return this._pastries.sort(
@@ -112,10 +110,7 @@ export class PastrieService {
     }
 
     getPastrie(id: string): Observable<Pastrie> {
-    // URL/ID/.json pour récupérer une pâtisserie
-        return this.http.get<Pastrie>(this.pastriesUrl + `/${id}/.json`).pipe(
-            map(pastrie => pastrie) // JSON
-        );
+        return this.http.get<Pastrie>(this.pastriesUrl + `/${id}`) ;
     }
     
     // ...
@@ -147,37 +142,4 @@ export class PastriesComponent implements OnInit {
 }
 ```
 
-Terminez cet exercice en refactorisant les autres méthodes. 
-Considérez les remarques pour les méthodes suivantes.
-
-```typescript
-map(pastries => {
-    if (word.length > 2) {
-        let response:Pastrie[] = [];
-    }
-    // lodash
-    _.forEach(pastrie => {
-        if (pastrie.title.includes(word)) response.push(pastrie);
-    });
-    
-    return response;
-})
-```
-
-Pour le component PaginateComponent, vous devrez refactoriser la méthode init
-comme suit :
-
-```typescript
-init(page: number = 1) {
-    // lorsqu'on a à disposition le nombre de pâtisseries depuis la base de données :
-    this.aS.count().subscribe(count => {
-        this.perPage = this.perPageElement;
-        this.setParameters(count, page);
-        this.pages = [];
-        
-        for (let i = 1; i < this.numberPages + 1; i++) {
-            this.pages.push(i);
-        }
-    })
-}
-```
+Terminez cet exercice en **refactorisant** les autres méthodes. 
