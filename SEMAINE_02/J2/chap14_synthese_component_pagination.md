@@ -14,7 +14,7 @@ Nous vous donnons quelques conseils pour vous guider dans la suite du document.
 Créez un component propre à la pagination.
 
 ```bash
-ng g c paginate
+ng g c paginate --module app
 ```
 
 Mettez en place le component paginate puis placez le code HTML de manière
@@ -26,7 +26,7 @@ reculer et d’avancer dans l’affichage des pâtisseries.
 Les boutons de pagination seront cliquables et permettront d’afficher un nombre
 de pâtisseries prédéfini par page (ceci sera réalisé par vos soins dans le code).
 
-Créez une méthode paginate dans votre service, elle retournera un tableau
+Créez une méthode **paginate** dans votre service, elle retournera un tableau
 de pâtisseries slicées (utilisez la méthode slice de JS).
 
 Dans le component PaginateComponent créez les méthodes de pagination classiques :
