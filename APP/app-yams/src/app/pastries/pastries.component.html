@@ -3,7 +3,8 @@
   <!-- du template vers le TS (event)="function(arg)" -->
   
   <!-- .pagination -->
-  <app-pagination></app-pagination>
+  <app-pagination (paginate)="paginate($event)"></app-pagination>
+  <app-pagination  (paginate)="paginate($event)"></app-pagination>
   <!-- On récupère la valeur $event de l'enfant -->
   <div class="col-sm-4">
     <div class="sticky">
@@ -54,6 +55,6 @@
     </section>
   </div>
   <!-- du template vers le TS (event)="function(arg)" -->
-  <app-pagination></app-pagination>
+  <app-pagination  (paginate)="paginate($event)" ></app-pagination>
   <!-- .pagination -->
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PASTRIES, Max } from '../mock-pastries';
-import { Pastrie, PreferencePastries } from '../pastrie';
+import { Paginate, Pastrie, PreferencePastries } from '../pastrie';
+import { PastriesService } from '../pastries.service';
 
 @Component({
   selector: 'app-pastries',
@@ -17,7 +18,7 @@ export class PastriesComponent implements OnInit {
   foo: string = 'hello';
   currentPastrie: Pastrie | null = null;
 
-  constructor() {
+  constructor(private ps : PastriesService) {
     console.log('Constructor');
   }
 
@@ -26,13 +27,13 @@ export class PastriesComponent implements OnInit {
   }
 
   // (click) = récupère la pastrie
-  onSelect(pastrie: Pastrie) {
+  onSelect(pastrie: Pastrie):void {
     console.log(pastrie);
 
     this.currentPastrie = pastrie;
   }
 
-  changeParentPreference($event: string) {
+  changeParentPreference($event: string) :void{
     console.log($event);
 
     const pastrie: Pastrie | undefined = this.pastries.find(
@@ -48,7 +49,12 @@ export class PastriesComponent implements OnInit {
     }
   }
 
-  search($event : Pastrie[]){
+  search($event : Pastrie[]):void{
     this.pastries = $event ;
+  }
+
+  paginate($event: Paginate):void{
+    const { start, end } = $event ;
+    this.pastries = this.ps.paginate(start, end) ;
   }
 }

@@ -19,3 +19,8 @@ export interface List {
 export interface PreferencePastries{
   pastrie : Pastrie;
 }
+
+export interface Paginate{
+  start : number;
+  end : number;
+}

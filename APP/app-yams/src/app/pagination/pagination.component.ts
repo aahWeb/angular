@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PastriesService } from '../pastries.service';
+import { Paginate } from '../pastrie';
 
 @Component({
   selector: 'app-pagination',
@@ -12,6 +13,7 @@ export class PaginationComponent {
   numberPages: number = 0;
   total: number = 0;
   pages: number[] = [];
+  @Output() paginate: EventEmitter<Paginate> = new EventEmitter();
 
   constructor(private ps: PastriesService) {
     this.total = this.ps.count();
@@ -22,14 +24,24 @@ export class PaginationComponent {
 
   next() {
     this.currentPage = (this.currentPage  == this.numberPages) ? 1 : this.currentPage + 1;
+    this.paginate.emit(this.calculPaginate(this.currentPage));
   }
 
   previous() {
     this.currentPage = (this.currentPage  == 1) ? this.numberPages : this.currentPage - 1;
+    this.paginate.emit(this.calculPaginate(this.currentPage));
   }
 
   selectedPage(page : number){
     this.currentPage = page;
+    this.paginate.emit(this.calculPaginate(this.currentPage));
+  }
+
+  calculPaginate(page : number):Paginate{
+    const start = (page - 1) * this.perPage;
+    const end = start + this.perPage ;
+
+    return {start, end};
   }
 
 }
