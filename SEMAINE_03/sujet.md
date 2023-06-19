@@ -6,7 +6,7 @@
 
 3. Créez une page de jeu pour gagner des patisserie
 
-4. Mettez en place sur l'API la sécurité avec **JSONWEBTOKEN** avec l'application
+4. Mettez en place sur l'API la sécurisation des routes avec **JSONWEBTOKEN** ainsi que dans l'application
 
 Indications : 
 
@@ -21,7 +21,7 @@ npm install --save-dev @types/cookie-parser
 
 Vous devez mettre la clé secrète dans le fichier .env 
 
-Utilisez les deux objets suivant de jsonwebtoken pour l'authentification ainsi que HttpInterceptor pour renvoyer le token à l'API
+Utilisez les deux objets suivant de **jsonwebtoken** pour l'authentification ainsi que **HttpInterceptor** pour renvoyer le token à l'API
 
 ```js
 import { sign, verify } from 'jsonwebtoken';
@@ -53,7 +53,10 @@ export class AuthInterceptor implements HttpInterceptor {
 }
 ```
 
-5. (facultatif) Créez un module et un service spécifique à ce module pour mettre la logique du jeu à l'intérieur de ce module.
+Pour les questions suivantes créez des branches spécifiques 
+
+5. (facultatif) Créez un module et un service spécifique à ce module pour mettre la logique du jeu à l'intérieur de ce module (refactorisation)
+
 6. (facultatif) Utilisez MongoDB pour la persistance des données.
 
 
